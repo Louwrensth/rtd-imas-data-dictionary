@@ -11,4 +11,5 @@ build:
     - python -m pip install --no-deps --extra-index-url https://testpypi.python.org/pypi imas_data_dictionary
     - mkdir -p $READTHEDOCS_OUTPUT/html
     - find $READTHEDOCS_VIRTUALENV_PATH -type d -name imas
-    - cp -av $READTHEDOCS_VIRTUALENV_PATH/dd_*/share/doc/imas $READTHEDOCS_OUTPUT/html
+    - cp -a $READTHEDOCS_VIRTUALENV_PATH/dd_*/share/doc/imas/* $READTHEDOCS_OUTPUT/html/
+    - cp -av $READTHEDOCS_OUTPUT/html/html_documentation.html $READTHEDOCS_OUTPUT/html/index.html

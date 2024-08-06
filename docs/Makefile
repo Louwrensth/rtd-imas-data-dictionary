@@ -6,7 +6,16 @@
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = source
-BUILDDIR      = build
+BUILDDIR      = _build
+
+# check that requirements are fulfilled
+requirements_warnings := $(shell pip freeze -r requirements.txt 2>&1 >/dev/null | grep WARNING)
+ifneq ($(requirements_warnings), )
+$(info $(requirements_warnings))
+$(info Requirements can be installed with pip:)
+$(info $$ pip install -r $(shell readlink -f requirements.txt))
+$(error Missing python packages for building the documentation.)
+endif
 
 # Put it first so that "make" without argument is like "make help".
 help:

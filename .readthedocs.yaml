@@ -5,6 +5,12 @@ build:
   tools:
     python: "3.10"
 
+  # Specify build.commands, then none of the pre-defined build jobs will be executed
+  commands:
+    - pip install --no-deps --extra-index-url https://testpypi.python.org/pypi imas_data_dictionary
+    - mkdir -p $READTHEDOCS_OUTPUT/html
+    - cp -av $READTHEDOCS_VIRTUALENV_PATH/dd_*/share/doc/imas $READTHEDOCS_OUTPUT/html
+
 python:
   install:
     - requirements: docs/requirements.txt

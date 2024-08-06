@@ -1,6 +1,5 @@
 # Sphinx and theme
 sphinx==7.1.2
 sphinx-immaterial==0.12.2
-setuptools_scm > 8
-# Git integration
-gitpython
+--extra-index-url https://testpypi.python.org/pypi
+imas_data_dictionary
